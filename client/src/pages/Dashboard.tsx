@@ -1,27 +1,21 @@
-import React from "react";
-import Piesex from "../components/charts/Piesex";
-
-const data = [
-  {
-    id: "female",
-    label: "female",
-    value: 419,
-    color: "hsl(349, 75%, 44%)",
-  },
-
-  {
-    id: "male",
-    label: "male",
-    value: 578,
-    color: "hsl(231, 51%, 46%)",
-  },
-];
+import ChildrenCount from "../components/dashboard/ChildrenCount";
+import data from "../data/data.json";
 
 const Dashboard = () => {
   return (
-    <div className="w-full p-2 bg-primary1">
-      <Piesex data={data} />
-    </div>
+    <>
+      <div className="mb-4">
+        <h1 className="text-yellow-50 text-3xl uppercase font-semibold mb-1">
+          Dashboard
+        </h1>
+        <p className="text-secondary">Welcome to your dashboard user</p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <ChildrenCount total={data.length} />
+        <ChildrenCount total={data.length} />
+        <ChildrenCount total={data.length} />
+      </div>
+    </>
   );
 };
 

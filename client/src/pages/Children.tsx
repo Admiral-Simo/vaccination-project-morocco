@@ -1,7 +1,10 @@
-import React from "react";
 
 const Children = () => {
-  return <div className="w-full p-2 bg-primary1">Children</div>;
+  return (
+    <>
+      <h1>children</h1>
+    </>
+  );
 };
 
 export default Children;

@@ -8,6 +8,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./AppLayout";
 import Dashboard from "./pages/Dashboard";
 import Children from "./pages/Children";
+import Sex from "./pages/Sex";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/children",
         element: <Children />,
+      },
+      {
+        path: "/sex",
+        element: <Sex />,
       },
     ],
   },

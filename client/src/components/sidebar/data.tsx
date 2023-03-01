@@ -1,4 +1,5 @@
 import { MdSpaceDashboard, MdChildCare } from "react-icons/md";
+import {BsGenderFemale} from 'react-icons/bs'
 
 interface DataInterface {
   icon: React.ReactNode;
@@ -16,5 +17,10 @@ export const data: DataInterface[] = [
     icon: <MdChildCare />,
     title: "Children",
     path: "/children",
+  },
+  {
+    icon: <BsGenderFemale />,
+    title: "Sex",
+    path: "/sex",
   },
 ];

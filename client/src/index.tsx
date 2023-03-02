@@ -4,11 +4,15 @@ import App from "./AppLayout";
 import * as serviceWorker from "./serviceWorker";
 import React from "react";
 
+import { Provider } from "react-redux";
+import store from "./redux/app";
+
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./AppLayout";
 import Dashboard from "./pages/Dashboard";
 import Children from "./pages/Children";
 import Sex from "./pages/Sex";
+import ChildProfile from "./pages/ChildProfile";
 
 const router = createBrowserRouter([
   {
@@ -27,13 +31,19 @@ const router = createBrowserRouter([
         path: "/sex",
         element: <Sex />,
       },
+      {
+        path: "/child_profile",
+        element: <ChildProfile />,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 

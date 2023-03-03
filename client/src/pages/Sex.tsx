@@ -29,11 +29,12 @@ const newData = data.reduce(
 );
 
 const Sex = () => {
-  console.log(newData);
   return (
     <>
       <div className="h-screen">
-        <h1 className="text-center text-secondary font-bold text-4xl">Sex Type</h1>
+        <h1 className="text-center text-secondary font-bold text-4xl">
+          Sex Type
+        </h1>
         <Piesex data={newData} />
       </div>
     </>

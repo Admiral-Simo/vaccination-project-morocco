@@ -2,10 +2,15 @@ import React from "react";
 import { ChildInterface } from "../../types/child";
 import { useNavigate } from "react-router-dom";
 import Gender from "../reusable/Gender";
+import { useDispatch } from "react-redux";
+import { setCurrentChild } from "../../redux/features/childSlice";
 
-const Child = ({ SMI, fullname, adresse, sex }: ChildInterface) => {
+const Child = ({ SMI, fullname, adresse, sex, id }: ChildInterface) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleClick = () => {
+    // todo store id to the current child redux
+    dispatch(setCurrentChild(id));
     navigate("/child_profile");
   };
   return (
@@ -18,12 +23,10 @@ const Child = ({ SMI, fullname, adresse, sex }: ChildInterface) => {
           {SMI}
         </div>
       </td>
-      <td
-        
-      >
+      <td>
         <Gender type={sex} size={18} />
       </td>
-      <td className="text-base md:text-2xl font-bold">{fullname}</td>
+      <td className="text-base md:text-2xl font-bold capitalize">{fullname}</td>
       <td className="text-white font-thin">{adresse}</td>
       {/* <p>{SMI}</p>
       <p>{fullname}</p>

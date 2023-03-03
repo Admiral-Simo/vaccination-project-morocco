@@ -8,7 +8,7 @@ interface GenderProps {
 const Gender = ({ type, size }: GenderProps) => {
   return (
     <div
-      className={`p-2 w-fit flex justify-center items-center ${
+      className={`p-4 w-fit flex justify-center items-center ${
         type === "f" ? "bg-pink-500" : "bg-sky-500"
       } rounded-full`}
     >

@@ -8,6 +8,8 @@ import { selectQuery } from "../redux/features/searchSlice";
 const Children = () => {
   const [children, setChildren] = useState<ChildInterface[]>(data);
   const query = useSelector(selectQuery);
+
+  
   useEffect(() => {
     if (!query) {
       return setChildren([]);

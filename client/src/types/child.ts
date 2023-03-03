@@ -23,4 +23,5 @@ export interface ChildInterface {
   size__7: string | number;
   DTC_VPO: string;
   size__8: string | number;
+  id: number;
 }

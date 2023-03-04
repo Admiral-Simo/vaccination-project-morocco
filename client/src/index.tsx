@@ -6,6 +6,8 @@ import React from "react";
 
 import { Provider } from "react-redux";
 import store from "./redux/app";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistStore } from "redux-persist";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./AppLayout";
@@ -13,6 +15,8 @@ import Dashboard from "./pages/Dashboard";
 import Children from "./pages/Children";
 import Sex from "./pages/Sex";
 import ChildProfile from "./pages/ChildProfile";
+
+let persistor = persistStore(store)
 
 const router = createBrowserRouter([
   {
@@ -42,7 +46,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <PersistGate persistor={persistor}>
+        <RouterProvider router={router} />
+      </PersistGate>
     </Provider>
   </React.StrictMode>
 );

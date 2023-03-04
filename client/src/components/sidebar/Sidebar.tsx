@@ -10,7 +10,7 @@ interface DataInterface {
 const Sidebar = () => {
   return (
     <div className="bg-primary2 text-white p-3 md:p-6 w-fit">
-      <h1 className="hidden md:block text-4xl uppercase text-secondary">dashboard</h1>
+      <h1 className="hidden md:block text-4xl uppercase text-secondary">vaccination</h1>
       <div className="hidden md:block divider mt-5 mb-3" />
 
       <div className="space-y-2">

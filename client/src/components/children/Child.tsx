@@ -4,13 +4,16 @@ import { useNavigate } from "react-router-dom";
 import Gender from "../reusable/Gender";
 import { useDispatch } from "react-redux";
 import { setCurrentChild } from "../../redux/features/childSlice";
+import data from '../../data/data.json'
 
 const Child = ({ SMI, fullname, adresse, sex, id }: ChildInterface) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleClick = () => {
     // todo store id to the current child redux
-    dispatch(setCurrentChild(id));
+    const item = data.filter((item) => item.id === id);
+    const firstItem = item[0];
+    dispatch(setCurrentChild(firstItem));
     navigate("/child_profile");
   };
   return (

@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 export const childSlice = createSlice({
   name: "child",
   initialState: {
-    currentChild: null,
+    child: {},
   },
   reducers: {
     setCurrentChild: (state, action) => {
-      state.currentChild = action.payload;
+      state.child = action.payload;
     },
   },
 });
@@ -15,6 +15,6 @@ export const childSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { setCurrentChild } = childSlice.actions;
 
-export const selectCurrentChild = (state: any) => state.child.currentChild;
+export const selectCurrentChild = (state: any) => state.child.child;
 
 export default childSlice.reducer;

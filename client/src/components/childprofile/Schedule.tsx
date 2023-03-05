@@ -14,9 +14,7 @@ const Schedule = ({ title }: ScheduleProps) => {
   const { bcg, penta1, penta2, penta3, vitAD, rr, pneumo3, dtc1, dtc2 } =
     useSchedule(child).current;
 
-  useEffect(() => {
-    console.log(bcg, penta1, penta2, penta3, vitAD, rr, pneumo3, dtc1, dtc2);
-  }, []);
+  
 
   switch (title.toUpperCase()) {
     case "BCG_HB_VPO_VITD":

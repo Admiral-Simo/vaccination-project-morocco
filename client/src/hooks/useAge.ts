@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { calculateAge } from "../../utils/calculateAge";
+import { calculateAge } from "../utils/calculateAge";
 
 const useAge = (birthday: any) => {
   const age = useRef<any>({});

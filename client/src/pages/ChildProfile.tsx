@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { selectCurrentChild } from "../redux/features/childSlice";
 import Gender from "../components/reusable/Gender";
 // import { ChildInterface } from "../types/child";
-import useAge from "../components/hooks/useAge";
+import useAge from "../hooks/useAge";
 import Vaccine from "../components/childprofile/Vaccine";
 
 const whenToVaccine = [
@@ -31,9 +31,11 @@ const ChildProfile = () => {
       </div>
       <p className="text-xl uppercase text-orange-500">fullname: </p>
       <h2 className="text-2xl capitalize mb-3">{child?.fullname}</h2>
+      <p className="text-xl uppercase text-orange-500">address: </p>
+      <h2 className="text-2xl capitalize mb-3">{child?.adresse}</h2>
       <p className="text-xl uppercase text-orange-500">birthday: </p>
       <h2 className="text-2xl capitalize mb-3">{child?.birthday}</h2>
-      <p className="text-xl uppercase text-orange-500">birthday: </p>
+      <p className="text-xl uppercase text-orange-500">child age: </p>
       <h2 className="text-2xl capitalize mb-3">
         {age &&
           `${age.current?.year} years,${age.current?.month} months,${age.current?.day} days`}

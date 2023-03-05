@@ -1,27 +1,40 @@
-export const calculateAge = (birthday: any) => {
-  if (!birthday) return null;
-  birthday = birthday.split("/");
-  birthday[2] = "20" + birthday[2];
-  birthday = birthday.join("/");
-  let birthdate = new Date(birthday.split("/").reverse().join("-"));
-  let currentDate = new Date();
+export const calculateAge = (dateString: any) => {
+  // Parse the input string to obtain the day, month, and year values
+  var parts = dateString.split('/');
+  var day = parseInt(parts[0], 10);
+  var month = parseInt(parts[1], 10) - 1; // Adjust month to zero-based index
+  var year = parseInt(parts[2], 10) + 2000; // Convert two-digit year to four-digit year
 
-  let ageInMilliseconds: number = currentDate.getTime() - birthdate.getTime();
+  // Create a new Date object for the input date
+  var inputDate = new Date(year, month, day);
 
-  let year, month, day, hour, minute, second;
+  // Create a new Date object for the current date
+  var currentDate = new Date();
 
-  second = Math.floor(ageInMilliseconds / 1000);
-  minute = Math.floor(second / 60);
-  second = second % 60;
-  hour = Math.floor(minute / 60);
-  minute = minute % 60;
-  day = Math.floor(hour / 24);
-  hour = hour % 24;
-  month = Math.floor(day / 30);
-  day = day % 30;
-  year = Math.floor(month / 12);
-  month = month % 12;
+  // Calculate the difference in years and months between the two dates
+  var years = currentDate.getFullYear() - inputDate.getFullYear();
+  var months = currentDate.getMonth() - inputDate.getMonth();
 
+  // Adjust the number of years and months if the current date falls before the input date
+  if (months < 0 || (months === 0 && currentDate.getDate() < inputDate.getDate())) {
+    years--;
+    months += 12;
+  }
 
-  return { year, month, day };
-};
+  // Calculate the difference in days between the two dates
+  var days = currentDate.getDate() - inputDate.getDate();
+
+  // Adjust the number of months and days if necessary
+  if (days < 0) {
+    var daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate();
+    days += daysInMonth;
+    months--;
+  }
+
+  // Return an object containing the number of years, months, and days
+  return {
+    year: years,
+    month: months,
+    day: days
+  };
+}

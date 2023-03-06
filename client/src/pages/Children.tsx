@@ -20,7 +20,7 @@ const Children = () => {
             child.fullname.includes(query) ||
             child.SMI.includes(query) ||
             child.birthday.includes(query) ||
-            child.adresse.includes(query)
+            child.adresse.includes(query) 
         )
       );
     }

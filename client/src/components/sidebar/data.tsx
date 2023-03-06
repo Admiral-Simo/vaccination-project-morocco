@@ -1,5 +1,6 @@
-import { MdSpaceDashboard, MdChildCare } from "react-icons/md";
-import {BsGenderFemale} from 'react-icons/bs'
+import { MdSpaceDashboard, MdChildCare,  } from "react-icons/md";
+import {TbVaccine} from 'react-icons/tb'
+import { BsGenderFemale } from "react-icons/bs";
 
 interface DataInterface {
   icon: React.ReactNode;
@@ -9,18 +10,23 @@ interface DataInterface {
 
 export const data: DataInterface[] = [
   {
-    icon: <MdSpaceDashboard />,
+    icon: <MdSpaceDashboard size={22} />,
     title: "Dashboard",
     path: "/",
   },
   {
-    icon: <MdChildCare />,
+    icon: <MdChildCare size={22} />,
     title: "Children",
     path: "/children",
   },
   {
-    icon: <BsGenderFemale />,
+    icon: <BsGenderFemale size={22} />,
     title: "Sex",
+    path: "/sex",
+  },
+  {
+    icon: <TbVaccine size={22} />,
+    title: "Search By vaccine",
     path: "/sex",
   },
 ];

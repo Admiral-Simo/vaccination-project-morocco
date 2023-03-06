@@ -2,12 +2,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectQuery, setQuery } from "../../redux/features/searchSlice";
 
 import { FaWindowClose } from "react-icons/fa";
+import { useEffect } from "react";
 
 const Search = () => {
   const query = useSelector(selectQuery);
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setQuery(""));
+  }, []);
   return (
-    <div className="bg-primary2 rounded-xl w-fit flex flex-row text-white space-x-2 px-5 items-center">
+    <div className="bg-primary2 w-fit relative flex flex-row text-white space-x-2 px-5 items-center">
       <input
         onChange={(e) => dispatch(setQuery(e.target.value))}
         value={query}
@@ -17,9 +21,9 @@ const Search = () => {
       />
       <button
         onClick={() => dispatch(setQuery(""))}
-        className="bg-primary2 p-2 focus:outline-none text-sky-500"
+        className="bg-primary2 absolute right-0 top-0 bottom-0 p-2 focus:outline-none text-sky-500"
       >
-        <FaWindowClose />
+        {query && <FaWindowClose />}
       </button>
     </div>
   );

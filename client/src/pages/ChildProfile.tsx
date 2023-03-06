@@ -5,14 +5,6 @@ import Gender from "../components/reusable/Gender";
 import useAge from "../hooks/useAge";
 import Vaccine from "../components/childprofile/Vaccine";
 
-const whenToVaccine = [
-  {
-    title: "BCG_HB_VPO_vitD",
-    // months
-    after: 3,
-  },
-];
-
 const ChildProfile = () => {
   const child = useSelector(selectCurrentChild);
   const age = useAge(child?.birthday);
@@ -42,7 +34,7 @@ const ChildProfile = () => {
       </h2>
       <p className="text-xl uppercase text-orange-500">vaccines: </p>
       {/* vaccines */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-5">
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 gap-y-9 mb-5">
         <Vaccine value={child?.BCG_HB_VPO_vitD} title="BCG_HB_VPO_vitD" />
         <Vaccine value={child?.penta1} title="penta1" />
         <Vaccine value={child?.penta2} title="penta2" />
@@ -54,7 +46,7 @@ const ChildProfile = () => {
         <Vaccine value={child?.DTC_VPO} title="DTC_VPO" />
       </div>
       <div className="relative flex justify-end mb-3">
-        <button className="bg-green-400 text-gray-800 py-4 px-7 text-3xl font-bold rounded-lg active:scale-90 transition duration-300 hover:opacity-80">
+        <button className="bg-yellow-400 text-black py-4 px-7 text-3xl font-bold rounded-lg active:scale-90 transition duration-300 hover:opacity-80">
           Submit
         </button>
       </div>

@@ -33,6 +33,6 @@
     @apply py-2 px-2 md:px-5 space-x-2 flex flex-row items-center rounded-sm text-gray-600 bg-secondary transition hover:opacity-90 hover:scale-105;
   }
   .divider {
-    @apply h-[1px] bg-black rounded-full w-full mx-auto;
+    @apply h-[1px] bg-gray-400 rounded-full w-full mx-auto;
   }
 }

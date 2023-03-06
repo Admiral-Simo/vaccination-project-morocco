@@ -7,6 +7,9 @@ interface DataInterface {
   title: string;
 }
 
+// 0a288b primary two
+// 003cff primary one
+
 const Sidebar = () => {
   return (
     <div className="bg-primary2 text-white p-3 md:p-6 w-fit">

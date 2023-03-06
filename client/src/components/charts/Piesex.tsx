@@ -1,7 +1,13 @@
 import { ResponsivePie } from "@nivo/pie";
 
+// make sure parent container have a defined height when using
+// responsive component, otherwise height will be 0 and
+// no chart will be rendered.
+// website examples showcase many properties,
+// you'll often use just a few of them.
+
 interface DataInterface {
-  data: { id: string; label: string; value: number; color: string }[];
+  data: { id: string; label: string; value: number }[];
 }
 
 // make sure parent container have a defined height when using
@@ -9,125 +15,44 @@ interface DataInterface {
 // no chart will be rendered.
 // website examples showcase many properties,
 // you'll often use just a few of them.
-const Piesex = ({ data /* see data tab */ }: DataInterface) => (
-  <ResponsivePie
-    data={data}
-    margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
-    innerRadius={0.5}
-    padAngle={0.7}
-    cornerRadius={3}
-    activeOuterRadiusOffset={8}
-    borderWidth={1}
-    borderColor={{
-      from: "color",
-      modifiers: [["darker", 0.2]],
-    }}
-    arcLinkLabelsSkipAngle={10}
-    arcLinkLabelsTextColor="#333333"
-    arcLinkLabelsThickness={2}
-    arcLinkLabelsColor={{ from: "color" }}
-    arcLabelsSkipAngle={10}
-    arcLabelsTextColor={{
-      from: "color",
-      modifiers: [["darker", 2]],
-    }}
-    
-    defs={[
-      {
-        id: "dots",
-        type: "patternDots",
-        background: "inherit",
-        color: "rgba(255, 255, 255, 0.3)",
-        size: 4,
-        padding: 1,
-        stagger: true,
-      },
-      {
-        id: "lines",
-        type: "patternLines",
-        background: "inherit",
-        color: "rgba(255, 255, 255, 0.3)",
-        rotation: -45,
-        lineWidth: 6,
-        spacing: 10,
-      },
-    ]}
-    fill={[
-      {
-        match: {
-          id: "ruby",
-        },
-        id: "dots",
-      },
-      {
-        match: {
-          id: "c",
-        },
-        id: "dots",
-      },
-      {
-        match: {
-          id: "go",
-        },
-        id: "dots",
-      },
-      {
-        match: {
-          id: "python",
-        },
-        id: "dots",
-      },
-      {
-        match: {
-          id: "scala",
-        },
-        id: "lines",
-      },
-      {
-        match: {
-          id: "lisp",
-        },
-        id: "lines",
-      },
-      {
-        match: {
-          id: "elixir",
-        },
-        id: "lines",
-      },
-      {
-        match: {
-          id: "javascript",
-        },
-        id: "lines",
-      },
-    ]}
-    legends={[
-      {
-        anchor: "bottom",
-        direction: "row",
-        justify: false,
-        translateX: 0,
-        translateY: 56,
-        itemsSpacing: 0,
-        itemWidth: 100,
-        itemHeight: 18,
-        itemTextColor: "#999",
-        itemDirection: "left-to-right",
-        itemOpacity: 1,
-        symbolSize: 18,
-        symbolShape: "circle",
-        effects: [
-          {
-            on: "hover",
-            style: {
-              itemTextColor: "#000",
-            },
-          },
-        ],
-      },
-    ]}
-  />
-);
+const Piesex = ({ data /* see data tab */ }: DataInterface): any => {
+  const total = data.reduce((total, item) => total + item.value, 0);
+  return (
+    <div className="text-white bg-primary2 rounded-lg m-5 p-5 flex flex-col items-center justify-center">
+      <div className="flex flex-row gap-4 items-end h-[600px]">
+        <div
+          className="bg-[#018dff] h-[50%] w-20 flex items-center justify-center font-semibold text-xl"
+          style={{
+            height: `${
+              // @ts-ignore
+              (data.find((item) => item.label === "male").value / total) * 100
+            }%`,
+          }}
+          // @ts-ignore
+        >{Math.round((data.find((item) => item.label === "male").value / total) * 100)}%</div>
+        <div
+          className="bg-[#ff0077] w-20 flex items-center justify-center font-semibold text-xl"
+          style={{
+            height: `${
+              // @ts-ignore
+              (data.find((item) => item.label === "female").value / total) * 100
+            }%`,
+          }}
+          // @ts-ignore
+        >{Math.round((data.find((item) => item.label === "female").value / total) * 100)}%</div>
+      </div>
+      <div className="flex flex-row items-center gap-5 mt-6">
+        <div className="flex flex-row items-center gap-3">
+          <div className="w-5 h-5 bg-[#018dff] rounded-full"></div>male:{" "}
+          {data.find((item) => item.label === "male")?.value}
+        </div>
+        <div className="flex flex-row items-center gap-3">
+          <div className="w-5 h-5 bg-[#ff0077] rounded-full"></div>female:{" "}
+          {data.find((item) => item.label === "female")?.value}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Piesex;

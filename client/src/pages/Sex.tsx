@@ -31,7 +31,7 @@ const newData = data.reduce(
 const Sex = () => {
   return (
     <>
-      <div className="h-screen">
+      <div className="min-h-screen">
         <h1 className="text-center text-secondary font-bold text-4xl">
           Sex Type
         </h1>

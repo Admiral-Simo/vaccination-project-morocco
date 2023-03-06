@@ -19,7 +19,6 @@ const ScheduleDummy = ({ value }: DummyInterface) => {
     return Math.round(difference / 86400000 / 30.5);
   };
 
-  calculateTimeLeft();
 
   return (
     <div className="flex flex-row justify-between items-center">

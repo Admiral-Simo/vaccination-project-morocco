@@ -1,8 +1,10 @@
 export function getAbsoluteDateDifference(date1: number, date2: number) {
   // Convert the dates into the ISO format
 
-  let differenceInDays = Math.abs(date1 - date2);
-  // Return the absolute difference in days
+  let differenceInDays = date2 - date1;
+  if (differenceInDays <= 0) {
+    return 0;
+  } // Return the absolute difference in days
   return differenceInDays;
 }
 

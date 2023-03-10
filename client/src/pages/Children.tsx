@@ -19,10 +19,10 @@ const Children = () => {
       return setChildren(
         data?.filter(
           (child: ChildInterface) =>
-            child.fullname.includes(query) ||
-            child.SMI.includes(query) ||
-            child.birthday.includes(query) ||
-            child.adresse.includes(query)
+            child?.fullname?.includes(query) ||
+            child?.SMI?.includes(query) ||
+            child?.birthday?.includes(query) ||
+            child?.adresse?.includes(query)
         )
       );
     }

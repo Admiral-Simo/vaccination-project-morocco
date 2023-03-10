@@ -7,7 +7,10 @@ export const api = createApi({
     getChildren: builder.query({
       query: () => "/children",
     }),
+    getSexStat: builder.query({
+      query: () => "/sex-stats",
+    }),
   }),
 });
 
-export const { useGetChildrenQuery } = api;
+export const { useGetChildrenQuery, useGetSexStatQuery } = api;

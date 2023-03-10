@@ -1,4 +1,3 @@
-import React from "react";
 import { useLocation } from "react-router-dom";
 import Profile from "../reusable/Profile";
 import Search from "../reusable/Search";

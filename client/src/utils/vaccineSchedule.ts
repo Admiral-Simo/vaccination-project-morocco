@@ -5,15 +5,9 @@ export const vaccineScheduler = (data: any, birthday: string) => {
 
   // todo make relationship between penta1 and penta2 and penta3
 
-  const bcg = data.BCG_HB_VPO_vitD; // done
   const penta1 = data.penta1;
   const penta2 = data.penta2;
-  const penta3 = data.penta3;
-  const vitAD = data.vitD_vitA; // done
-  const rr = data.RR; // done
-  const pneumo3 = data.pneumo3; // done
-  const dtc1 = data.DTC_RR_VPO_vitA; // done
-  const dtc2 = data.DTC_VPO; // done
+  
 
   scheduled["bcg"] = millisecondsToDate(dateToObject(birthday).getTime());
 

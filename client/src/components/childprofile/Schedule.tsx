@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import useSchedule from "../../hooks/useSchedule";
 import { selectCurrentChild } from "../../redux/features/childSlice";

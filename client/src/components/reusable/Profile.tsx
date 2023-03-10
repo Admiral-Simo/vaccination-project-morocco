@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { AiFillCaretDown } from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
 
 const Profile = () => {

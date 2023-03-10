@@ -16,7 +16,11 @@ import Children from "./pages/Children";
 import Sex from "./pages/Sex";
 import ChildProfile from "./pages/ChildProfile";
 
-let persistor = persistStore(store)
+import { ApiProvider } from "@reduxjs/toolkit/dist/query/react";
+import { api } from "./redux/api/apiSlice";
+import Testing from "./pages/Testing";
+
+let persistor = persistStore(store);
 
 const router = createBrowserRouter([
   {
@@ -39,17 +43,23 @@ const router = createBrowserRouter([
         path: "/child_profile",
         element: <ChildProfile />,
       },
+      {
+        path: "/testing",
+        element: <Testing />,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <RouterProvider router={router} />
-      </PersistGate>
-    </Provider>
+    <ApiProvider api={api}>
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <RouterProvider router={router} />
+        </PersistGate>
+      </Provider>
+    </ApiProvider>
   </React.StrictMode>
 );
 

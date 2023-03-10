@@ -2,25 +2,27 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Child from "../components/children/Child";
 import { ChildInterface } from "../types/child";
-import data from "../data/data.json";
+
 import { selectQuery } from "../redux/features/searchSlice";
+import { useGetChildrenQuery } from "../redux/api/apiSlice";
 
 const Children = () => {
-  const [children, setChildren] = useState<ChildInterface[]>(data);
+  const [children, setChildren] = useState<ChildInterface[] | null>(null);
   const query = useSelector(selectQuery);
 
-  
+  const { data } = useGetChildrenQuery(3);
+
   useEffect(() => {
     if (!query) {
       return setChildren([]);
     } else {
       return setChildren(
-        data.filter(
-          (child) =>
+        data?.filter(
+          (child: ChildInterface) =>
             child.fullname.includes(query) ||
             child.SMI.includes(query) ||
             child.birthday.includes(query) ||
-            child.adresse.includes(query) 
+            child.adresse.includes(query)
         )
       );
     }
@@ -38,7 +40,7 @@ const Children = () => {
           </tr>
         </thead>
         <tbody>
-          {children.map((item, i) => {
+          {children?.map((item, i) => {
             return <Child key={i} {...item} />;
           })}
         </tbody>

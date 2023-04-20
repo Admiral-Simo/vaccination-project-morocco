@@ -1,5 +1,7 @@
 # Vaccinations for Children Project
 
+![alt text](https://gcdnb.pbrd.co/images/3MmuXQqKvEN0.png?o=1)
+
 This repository contains the code for a web application developed as part of a project to track vaccinations for children. The application allows users to view the list of vaccinations recommended for children, their schedules, and other important information related to the vaccinations.
 
 ## Installation

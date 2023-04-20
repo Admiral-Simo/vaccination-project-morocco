@@ -6,7 +6,7 @@ This repository contains the code for a web application developed as part of a p
 
 To run this project, you will need to have Node.js and npm installed on your system.
 
-1. Clone this repository: `git clone https://github.com/yourusername/vaccinations-for-children.git`
+1. Clone this repository: `git clone https://github.com/Admiral-Simo/vaccinations-for-children.git`
 2. Navigate to the server directory: `cd server`
 3. Install dependencies: `npm install`
 4. Start the server: `nodemon index.js`
